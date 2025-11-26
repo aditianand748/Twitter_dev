@@ -22,7 +22,7 @@ async get(id) {
 
 async getWithComments(id) {
      try {
-        const tweet = await Tweet.findById(id).populate({path: 'Comment'});
+        const tweet = await Tweet.findById(id).populate({path: 'comments'});
         return tweet;
     } catch (error) {
         console.log(error);
@@ -41,6 +41,17 @@ async update(tweetId, data) {
 async destroy(id) {
     try {
         const tweet = await Tweet.findByIdAndDelete(id);
+        return tweet;
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+
+  async getAll(Offset, limit) {
+     try {
+        const tweet = await Tweet.find().skip(offset).limit(limit);
         return tweet;
     } catch (error) {
         console.log(error);
