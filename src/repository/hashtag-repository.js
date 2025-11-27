@@ -1,4 +1,4 @@
-const Hashtag = require('../models/tweet');
+import Hashtag from '../models/hashtags.js'
 
 class HashtagRepository {
 
@@ -53,4 +53,4 @@ async findByName(titleList) {
 
 }
 
-module.exports = HashtagRepository;
+export default HashtagRepository;
